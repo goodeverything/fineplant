@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/fineframe/fineframe.iml" filepath="$PROJECT_DIR$/fineframe/fineframe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/finelib/finelib.iml" filepath="$PROJECT_DIR$/finelib/finelib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/finematerials/finematerials.iml" filepath="$PROJECT_DIR$/finematerials/finematerials.iml" />
+      <module fileurl="file://$PROJECT_DIR$/finepiping/finepiping.iml" filepath="$PROJECT_DIR$/finepiping/finepiping.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fineplant.iml" filepath="$PROJECT_DIR$/fineplant.iml" />
+    </modules>
+  </component>
+</project>

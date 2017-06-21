@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="fineframe" />
+        <module name="finelib" />
+        <module name="finematerials" />
+        <module name="finepiping" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="fineframe" target="1.5" />
+      <module name="finelib" target="1.5" />
+      <module name="finematerials" target="1.5" />
+      <module name="finepiping" target="1.5" />
+      <module name="fineplant" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

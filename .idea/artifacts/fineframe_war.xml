@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="fineframe:war">
+    <output-path>$PROJECT_DIR$/fineframe/target</output-path>
+    <root id="archive" name="fine-frame.war">
+      <element id="artifact" artifact-name="fineframe:war exploded" />
+    </root>
+  </artifact>
+</component>
