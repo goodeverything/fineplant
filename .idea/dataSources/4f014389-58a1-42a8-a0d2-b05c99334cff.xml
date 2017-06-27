@@ -10,28 +10,338 @@
     <schema id="4" parent="1" name="mysql"/>
     <schema id="5" parent="1" name="performance_schema"/>
     <schema id="6" parent="1" name="test"/>
-    <table id="7" parent="2" name="t1"/>
-    <column id="8" parent="7" name="id">
+    <table id="7" parent="2" name="frame_dbversion"/>
+    <table id="8" parent="2" name="frame_dictdata"/>
+    <table id="9" parent="2" name="frame_permission"/>
+    <table id="10" parent="2" name="frame_role"/>
+    <table id="11" parent="2" name="frame_role_permission"/>
+    <table id="12" parent="2" name="frame_role_user"/>
+    <table id="13" parent="2" name="frame_sysdict"/>
+    <table id="14" parent="2" name="frame_user"/>
+    <column id="15" parent="7" name="software">
       <Position>1</Position>
-      <Comment>新增id</Comment>
-      <DataType>bigint(20)|0</DataType>
+      <Comment>软件名称</Comment>
+      <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="9" parent="7" name="test_time">
+    <column id="16" parent="7" name="version">
       <Position>2</Position>
-      <Comment>测试时间</Comment>
+      <Comment>软件版本</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="17" parent="7" name="log">
+      <Position>3</Position>
+      <Comment>版本升级日志</Comment>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="18" parent="7" name="created_time">
+      <Position>4</Position>
+      <Comment>创建时间</Comment>
       <DataType>timestamp|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
-    <column id="10" parent="7" name="ttt">
-      <Position>3</Position>
-      <DataType>varchar(20)|0</DataType>
+    <column id="19" parent="7" name="created_by">
+      <Position>5</Position>
+      <Comment>创建人</Comment>
+      <DataType>varchar(50)|0</DataType>
     </column>
-    <key id="11" parent="7" name="PRIMARY">
+    <column id="20" parent="7" name="updated_time">
+      <Position>6</Position>
+      <Comment>修改时间</Comment>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="21" parent="7" name="updated_by">
+      <Position>7</Position>
+      <Comment>更新人</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <key id="22" parent="7" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
+      <ColNames>software</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="23" parent="8" name="dictcode">
+      <Position>1</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="8" name="created_time">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="25" parent="8" name="created_by">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="26" parent="8" name="updated_time">
+      <Position>6</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="27" parent="8" name="updated_by">
+      <Position>7</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="28" parent="8" name="datacode">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="8" name="dataname">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="30" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>dictcode
+datacode</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="31" parent="9" name="permission_id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="32" parent="9" name="permission_code">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="9" name="permission_name">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="9" name="description">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="35" parent="9" name="created_time">
+      <Position>5</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="36" parent="9" name="created_by">
+      <Position>6</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="37" parent="9" name="updated_time">
+      <Position>7</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="38" parent="9" name="updated_by">
+      <Position>8</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <index id="39" parent="9" name="idx_permission">
+      <ColNames>permission_code</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="40" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>permission_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="41" parent="9" name="idx_permission">
+      <ColNames>permission_code</ColNames>
+      <UnderlyingIndexName>idx_permission</UnderlyingIndexName>
+    </key>
+    <column id="42" parent="10" name="description">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="43" parent="10" name="created_time">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="44" parent="10" name="created_by">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="45" parent="10" name="updated_time">
+      <Position>6</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="46" parent="10" name="updated_by">
+      <Position>7</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="47" parent="10" name="rolecode">
+      <Position>1</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="48" parent="10" name="rolename">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="49" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>rolecode</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="50" parent="11" name="permission_id">
+      <Position>2</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="11" name="created_time">
+      <Position>3</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="52" parent="11" name="created_by">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="53" parent="11" name="updated_time">
+      <Position>5</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="54" parent="11" name="updated_by">
+      <Position>6</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="55" parent="11" name="rolecode">
+      <Position>1</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="56" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>rolecode
+permission_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="57" parent="12" name="created_time">
+      <Position>3</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="58" parent="12" name="created_by">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="59" parent="12" name="updated_time">
+      <Position>5</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="60" parent="12" name="updated_by">
+      <Position>6</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="61" parent="12" name="username">
+      <Position>1</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="62" parent="12" name="rolecode">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="63" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>username
+rolecode</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="64" parent="13" name="created_time">
+      <Position>3</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="65" parent="13" name="created_by">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="66" parent="13" name="updated_time">
+      <Position>5</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="67" parent="13" name="updated_by">
+      <Position>6</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="68" parent="13" name="dictcode">
+      <Position>1</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="69" parent="13" name="dictname">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="70" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>dictcode</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="71" parent="14" name="username">
+      <Position>1</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="72" parent="14" name="password">
+      <Position>2</Position>
+      <DataType>varchar(64)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="73" parent="14" name="enabled">
+      <Position>3</Position>
+      <DataType>tinyint(1)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="74" parent="14" name="created_time">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="75" parent="14" name="created_by">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="76" parent="14" name="updated_time">
+      <Position>6</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="77" parent="14" name="updated_by">
+      <Position>7</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <key id="78" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>username</ColNames>
       <Primary>1</Primary>
     </key>
   </database-model>

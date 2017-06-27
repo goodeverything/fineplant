@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.david.fineframe.dao.FrameDictdataDao">
+    <insert id="insertDictData">
+        insert ignore into frame_dictdata(dictcode,datacode,dataname,created_by,updated_by)
+        values(#{dictcode},#{datacode},#{dataname},#{createdBy},#{updatedBy})
+    </insert>
+    <update id="updateDictData">
+        update frame_dictdata set
+        dataname = #{dataname}
+        where dictcode = #{dictcode} and datacode = #{datacode}
+    </update>
+    <delete id="deleteDictData">
+        delete from frame_dictdata
+        where dictcode = #{dictcode} and datacode = #{datacode}
+    </delete>
+    <select id="selectDictData" resultType="FrameDictdata">
+        select dictcode,datacode,dataname,created_time,created_by,updated_time,updated_by
+        from frame_dictdata
+        where dictcode = #{dictcode} and datacode = #{datacode}
+    </select>
+    <select id="selectAllByDictcode" resultType="FrameDictdata">
+        select dictcode,datacode,dataname,created_time,created_by,updated_time,updated_by
+        from frame_dictdata
+        where dictcode = #{dictcode}
+    </select>
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.david.fineframe.dao.FrameDbversionDao">
+    <insert id="insertDbversion">
+        insert ignore into frame_dbversion(software, version, log, created_by, updated_by)
+        values(#{software},#{version},#{log},#{createdBy},#{updatedBy})
+    </insert>
+    <update id="updateDbversion">
+        update frame_dbversion set
+          version = #{version},
+          log = #{log},
+          created_by = #{createdBy},
+          updated_by = #{updatedBy}
+        where software = #{software}
+    </update>
+    <delete id="deleteDbversion">
+        delete from frame_dbversion where software = #{software}
+    </delete>
+    <select id="selectDbversion" resultType="FrameDbversion">
+        select software,version,log,created_time,created_by,updated_time,updated_by
+        from frame_dbversion where software = #{software}
+    </select>
+</mapper>
