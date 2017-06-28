@@ -11,25 +11,47 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!-- 1:扫描包 -->
+    <context:component-scan base-package="com.david.fineframe.web" />
+
     <!-- 配置spring webmvc -->
-    <!-- 1:开启spring mvc注解模式 -->
+    <!-- 2:开启spring mvc注解模式 -->
     <!-- 简化配置:1)自动注册handlemapping,handlerAdapter 2)提供一系列:数据绑定\数字日期的format\xml\json默认读写支持 -->
 
     <mvc:annotation-driven/>
 
-    <!-- 2:servlet-mapping 映射路径: "/" -->
+    <!-- 3:servlet-mapping 映射路径: "/" -->
     <!-- 静态资源资源默认servlet配置 -->
     <!-- <mvc:resources mapping="/resources/**" location="/resources/" />-->
     <mvc:default-servlet-handler />
 
-    <!-- 3:配置jsp 显示viewResolver -->
+    <!-- 4:配置jsp 显示viewResolver -->
     <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="prefix" value="/WEB-INF/jsps/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <!-- 4:扫描包 -->
-    <context:component-scan base-package="com.david.fineframe.web" />
+    <!--5：配置国际化-->
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver" />
+    <!--国际化的消息资源文件（本系统中主要用于显示/错误消息定制)-->
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>messages</value>
+            </list>
+        </property>
+        <property name="useCodeAsDefaultMessage" value="true" />
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="cacheSeconds" value="60"/>
+    </bean>
+    <mvc:annotation-driven validator="validator" />
 
+    <!-- 以下 validator  ConversionService 在使用 mvc:annotation-driven 会 自动注册-->
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
+        <!--这里配置将使用上面国际化配置的messageSource,配置后不起作用，只输出key值，没找到解决办法 -->
+        <!--注释掉，默认查找InvalidationMessage-->
+        <property name="validationMessageSource" ref="messageSource" />
+    </bean>
 </beans>

@@ -1,6 +1,7 @@
 package com.david.fineframe.entity;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 /**
@@ -8,7 +9,8 @@ import java.util.Date;
  * Created by sunqinwei on 2017/6/21.
  */
 public class FrameDbversion {
-    @NotNull(message = "软件名称不可为空")
+    @NotNull(message = "{FrameDbversion.software.notnull}")
+    @Size(min = 4,max = 20,message = "{FrameDbversion.software.size}")
     private String software;
     private String version;
     private String log;
