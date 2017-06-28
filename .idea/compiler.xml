@@ -14,9 +14,9 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="fineframe" target="1.8" />
-      <module name="finelib" target="1.5" />
-      <module name="finematerials" target="1.5" />
-      <module name="finepiping" target="1.5" />
+      <module name="finelib" target="1.8" />
+      <module name="finematerials" target="1.8" />
+      <module name="finepiping" target="1.8" />
       <module name="fineplant" target="1.5" />
     </bytecodeTargetLevel>
   </component>

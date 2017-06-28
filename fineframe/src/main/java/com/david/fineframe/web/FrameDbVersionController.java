@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -23,11 +24,15 @@ public class FrameDbVersionController {
         return dbversionService.update(dbversion);
     }
 
-    @RequestMapping(value = "/test")
+    @RequestMapping(value = "/update")
     @ResponseBody
     public FrameDbversion update(){
         FrameDbversion dbversion = new FrameDbversion("piping","V2.0","controller测试","david","david");
         return dbversionService.update(dbversion);
+    }
+    @RequestMapping(value="/test",method = RequestMethod.GET)
+    public String main(){
+        return "test";
     }
 
 }

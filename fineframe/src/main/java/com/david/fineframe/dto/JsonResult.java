@@ -1,40 +1,39 @@
 package com.david.fineframe.dto;
 
 /**
- *
+ * 用于封装返回数据
  * Created by sunqinwei on 2017/6/26.
  */
 public class JsonResult<T> {
-    private boolean success;
+    private JsonMeta meta;
     private T data;
-    private String error;
-    public JsonResult(boolean success, T data) {
-        super();
-        this.success = success;
+
+    public JsonResult(boolean success,String code,String message){
+        this.meta = new JsonMeta(success, code, message);
+    }
+    public JsonResult(boolean success,T data){
+        this.meta = new JsonMeta(success);
         this.data = data;
     }
-    public JsonResult(boolean success, String error) {
-        super();
-        this.success = success;
-        this.error = error;
+
+    public JsonResult(JsonMeta meta, T data) {
+        this.meta = meta;
+        this.data = data;
     }
-    public boolean isSuccess() {
-        return success;
+
+    public JsonMeta getMeta() {
+        return meta;
     }
-    public void setSuccess(boolean success) {
-        this.success = success;
+
+    public void setMeta(JsonMeta meta) {
+        this.meta = meta;
     }
+
     public T getData() {
         return data;
     }
+
     public void setData(T data) {
         this.data = data;
     }
-    public String getError() {
-        return error;
-    }
-    public void setError(String error) {
-        this.error = error;
-    }
-
 }
