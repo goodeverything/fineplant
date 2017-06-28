@@ -61,6 +61,7 @@ public class FrameDbVersionController {
         return "test";
     }
 
+    @ResponseBody
     @RequestMapping(value = "/resources", method = RequestMethod.GET)
     public String messageResources() {
         ResourceBundle myResources = ResourceBundle.getBundle("messages");
