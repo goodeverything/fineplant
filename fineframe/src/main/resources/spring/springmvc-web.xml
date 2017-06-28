@@ -52,6 +52,6 @@
         <property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
         <!--这里配置将使用上面国际化配置的messageSource,配置后不起作用，只输出key值，没找到解决办法 -->
         <!--注释掉，默认查找InvalidationMessage-->
-        <property name="validationMessageSource" ref="messageSource" />
+        <!--<property name="validationMessageSource" ref="messageSource" />-->
     </bean>
 </beans>
